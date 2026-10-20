@@ -2,18 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, Menu, X, LogOut, PlusCircle, Settings, User, LayoutDashboard } from 'lucide-react';
+import { ShoppingBag, Menu, X, LogOut, PlusCircle, Settings, User, LayoutDashboard, PackageCheck } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { useSession, signOut } from 'next-auth/react';
 import { Avatar } from '@/components/ui/Avatar';
 import { DropdownMenu, DropdownTrigger, DropdownContent, DropdownItem } from '@/components/ui/Dropdown';
+import { useCart } from '@/context/CartContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { data: session } = useSession();
+  const { totalCount, setIsCartOpen } = useCart();
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -46,6 +48,20 @@ export default function Navbar() {
               </Link>
             ))}
             
+            {/* Cart Icon Button */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-muted-foreground hover:text-foreground rounded-full hover:bg-secondary transition-colors"
+              aria-label="Shopping Cart"
+            >
+              <ShoppingBag className="w-5 h-5 text-primary" />
+              {totalCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] font-bold h-4.5 w-4.5 rounded-full flex items-center justify-center animate-in zoom-in shadow-xs">
+                  {totalCount}
+                </span>
+              )}
+            </button>
+
             {session ? (
                 <>
                     <Link href="/admin/add">
@@ -66,6 +82,12 @@ export default function Navbar() {
                                     <DropdownItem>
                                         <LayoutDashboard className="w-4 h-4 mr-2" />
                                         Dashboard
+                                    </DropdownItem>
+                                </Link>
+                                <Link href="/dashboard/orders">
+                                    <DropdownItem>
+                                        <PackageCheck className="w-4 h-4 mr-2" />
+                                        Orders
                                     </DropdownItem>
                                 </Link>
                                 <Link href="/settings">
@@ -89,11 +111,24 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Right Controls: Cart & Menu */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-foreground/80 hover:text-foreground rounded-full hover:bg-secondary transition-colors"
+              aria-label="Shopping Cart"
+            >
+              <ShoppingBag className="w-5 h-5 text-primary" />
+              {totalCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] font-bold h-4.5 w-4.5 rounded-full flex items-center justify-center animate-in zoom-in">
+                  {totalCount}
+                </span>
+              )}
+            </button>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-primary hover:text-primary/80 focus:outline-none"
+              className="p-2 text-primary hover:text-primary/80 focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

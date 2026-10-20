@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
+import CheckoutModal from "@/components/CheckoutModal";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -10,8 +12,8 @@ import { ToastProvider } from "@/components/ui/Toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "UniShop - Premium E-Commerce",
-  description: "Experience the best in online shopping.",
+  title: "UniShop - University Student Lifestyle & Essentials",
+  description: "Minimalist, stylish campus essentials for university students. Backpacks, watches, hoodies, and daily tech gear with fast campus delivery.",
 };
 
 export default function RootLayout({
@@ -28,6 +30,8 @@ export default function RootLayout({
             <main className="flex-1 pt-16">
               {children}
             </main>
+            <CartDrawer />
+            <CheckoutModal />
             <Footer />
           </ToastProvider>
         </Providers>

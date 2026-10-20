@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-
+import ProductActions from '@/components/ProductActions';
 import { getApiUrl } from '@/lib/config';
 
 async function getItem(id: string) {
@@ -33,7 +33,7 @@ export default async function ItemDetailsPage({ params }: { params: Promise<{ id
       </Link>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="relative aspect-square bg-secondary rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative aspect-square bg-secondary rounded-3xl overflow-hidden shadow-lg border border-border">
            <Image 
                 src={item.imageUrl} 
                 alt={item.name} 
@@ -45,29 +45,20 @@ export default async function ItemDetailsPage({ params }: { params: Promise<{ id
         </div>
         <div className="space-y-6 self-start">
             <div>
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">{item.category}</span>
-                <h1 className="text-4xl font-bold mt-2">{item.name}</h1>
+                <span className="text-xs font-semibold uppercase tracking-wider bg-secondary px-3 py-1 rounded-full text-secondary-foreground">
+                  {item.category || 'Student Gear'}
+                </span>
+                <h1 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">{item.name}</h1>
             </div>
-            <p className="text-3xl font-bold text-primary">${item.price.toFixed(2)}</p>
-            <p className="text-lg text-muted-foreground leading-relaxed">{item.description}</p>
             
-            <div className="pt-6 border-t border-border space-y-4">
-                <div className="flex gap-4">
-                    <Button size="lg" className="flex-1 text-lg h-12 rounded-full">
-                        Add to Cart
-                    </Button>
-                    <Button size="lg" variant="secondary" className="flex-1 text-lg h-12 rounded-full border-2 border-primary">
-                        Buy Now
-                    </Button>
-                </div>
-                <div className="flex gap-4 text-sm text-muted-foreground justify-center">
-                    <span>Free Shipping</span>
-                    <span>•</span>
-                    <span>Secure Checkout</span>
-                    <span>•</span>
-                    <span>Official Warranty</span>
-                </div>
-            </div>
+            <p className="text-3xl font-extrabold text-primary">${item.price.toFixed(2)}</p>
+            
+            <p className="text-base text-muted-foreground leading-relaxed">
+              {item.description}
+            </p>
+            
+            {/* Interactive Actions (Quantity, Add to Cart, Buy Now, Checkout Modal) */}
+            <ProductActions item={item} />
         </div>
       </div>
     </div>

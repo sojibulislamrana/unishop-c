@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'source.unsplash.com',
+        hostname: 'plus.unsplash.com',
       },
       {
         protocol: 'https',
@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'monno-shop.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**',
       },
     ],
   },

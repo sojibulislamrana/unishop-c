@@ -1,5 +1,5 @@
 import ProductCard from '@/components/ProductCard';
-
+import Link from 'next/link';
 import { getApiUrl } from '@/lib/config';
 
 async function getItems() {
@@ -40,7 +40,24 @@ export default async function ItemsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-12 text-center">Shop Collections</h1>
+      <div className="text-center max-w-2xl mx-auto mb-10">
+        <h1 className="text-4xl font-bold tracking-tight mb-3">Campus Collections</h1>
+        <p className="text-muted-foreground">Everyday bags, timepieces, streetwear, and study essentials designed for university life.</p>
+        
+        {categories.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-2 mt-6">
+            {categories.map(cat => (
+              <a 
+                key={cat} 
+                href={`#${cat}`} 
+                className="px-4 py-1.5 rounded-full text-sm font-medium bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                {cat} ({categorizedItems[cat].length})
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
       
       {items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-muted-foreground space-y-4">
@@ -52,6 +69,9 @@ export default async function ItemsPage() {
                 <section key={category} id={category} className="scroll-mt-24">
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="text-2xl font-bold">{category}</h2>
+                        <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full font-mono">
+                          {categorizedItems[category].length} items
+                        </span>
                         <div className="h-px bg-border flex-1" />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
