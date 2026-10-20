@@ -1,65 +1,133 @@
-# UniShop Client
+# UniShop — Student Lifestyle & E-Commerce
 
-The frontend application for UniShop, a modern e-commerce platform built with Next.js 15.
+<p align="center">
+  <img src="public/cover.png" alt="UniShop Cover" width="100%" />
+</p>
 
-## 🚀 Features
-- **Responsive Design**: Premium UI with Hero, Featured Categories, and Trending sections.
-- **Product Management**: Browse collections and view detailed product pages.
-- **Admin Features**: Secure "Add Item" page with Toast notifications.
-- **Authentication**: Custom authentication flow using NextAuth.js (Mock Credentials).
+<p align="center">
+  <a href="https://unishop-client.vercel.app"><img src="https://img.shields.io/badge/Live%20Demo-unishop--client.vercel.app-black?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+  <a href="https://github.com/sojibulislamrana/unishop-c"><img src="https://img.shields.io/badge/Client%20Repo-unishop--c-blue?style=for-the-badge&logo=github" alt="Client Repo" /></a>
+  <a href="https://github.com/sojibulislamrana/unishop-server"><img src="https://img.shields.io/badge/Backend%20API-unishop--server-emerald?style=for-the-badge&logo=express" alt="Server Repo" /></a>
+</p>
+
+UniShop is a modern, minimalist e-commerce platform tailored specifically for university students. Designed with a clean Scandinavian aesthetic, UniShop curates everyday essentials across bags, timepieces, streetwear apparel, and campus study gear with direct-to-dorm delivery and instant online checkout.
+
+---
+
+## 🔗 Quick Links
+
+* 🌐 **Live Website**: [https://unishop-client.vercel.app](https://unishop-client.vercel.app)
+* 📦 **Frontend Repository**: [https://github.com/sojibulislamrana/unishop-c](https://github.com/sojibulislamrana/unishop-c)
+* ⚙️ **Backend Repository**: [https://github.com/sojibulislamrana/unishop-server](https://github.com/sojibulislamrana/unishop-server)
+
+---
+
+## ✨ Features
+
+* **🎒 Curated Student Catalog**: Tailored categories including *Bags & Backpacks*, *Watches*, *Clothing & Apparel*, and *Study & Tech Gear*.
+* **🛒 Persistent Shopping Bag & Slide-over Drawer**: Full Cart Context with real-time badge count, item quantity adjustments, subtotal tracking, and `localStorage` persistence.
+* **💳 Campus Checkout & Online Card Payment**: Integrated student checkout capturing student dorm/hall room details, phone/WhatsApp, and secure 256-bit encrypted card payments.
+* **🎟️ Student Promo Engine**: Working promo code support (`CAMPUS10` for 10% off, `WELCOME20` for 20% off) applied directly at checkout.
+* **📊 Store & Order Dashboard**: Real-time sales metrics, revenue analytics, and an Order Management view to inspect dorm deliveries and update order status (`Pending` → `Delivered`).
+* **🛡️ Image Resilience**: Next.js optimized images with automated fallback handlers to guarantee zero broken images across the store.
+
+---
 
 ## 🛠 Tech Stack
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS, Lucide React icons
-- **Authentication**: NextAuth.js
-- **State Management**: React Context (ToastProvider)
 
-## 📦 Getting Started
+* **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+* **Library**: [React 19](https://react.dev/)
+* **Language**: [TypeScript](https://www.typescriptlang.org/)
+* **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+* **Icons**: [Lucide React](https://lucide.dev/)
+* **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+* **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- UniShop Server running on port 5001
+
+* [Node.js](https://nodejs.org/) (v18.17.0 or higher)
+* [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)
+* Running instance of [UniShop Server](https://github.com/sojibulislamrana/unishop-server)
 
 ### Installation
 
-1. Navigate to the client directory:
+1. **Clone the repository**:
    ```bash
-   cd client
+   git clone https://github.com/sojibulislamrana/unishop-c.git
+   cd unishop-c
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. Configure Environment:
-   Create `.env.local`:
+3. **Configure Environment Variables**:
+   Create a `.env.local` file in the root folder:
    ```env
+   # API Endpoint (Points to local server or deployed Vercel backend)
+   NEXT_PUBLIC_API_URL=http://localhost:5001
+
+   # NextAuth
    NEXTAUTH_URL=http://localhost:3000
-   NEXTAUTH_SECRET=any_secret_string
+   NEXTAUTH_SECRET=unishop_super_secret_session_key_2026
    ```
 
-### Running the App
+4. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-Start the development server:
-```bash
-npm run dev
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🔑 Demo & Admin Credentials
+
+* **Admin Email**: `admin@example.com`
+* **Password**: `password123`
+* **Student Promo Codes**: `CAMPUS10` (10% OFF), `WELCOME20` (20% OFF)
+* **Test Card for Checkout**: Any standard card format (prefilled demo card `4242 4242 4242 4242`)
+
+---
+
+## 📂 Project Structure
+
+```
+unishop-c/
+├── public/                 # Static assets & cover image
+│   └── cover.png
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   │   ├── admin/add/      # Add new catalog items
+│   │   ├── dashboard/      # Admin analytics & campus orders
+│   │   ├── items/          # Product collections & detail views
+│   │   ├── login/          # Student & admin sign-in
+│   │   ├── layout.tsx      # Root layout (Cart, Modals, Navbar)
+│   │   └── page.tsx        # Storefront home page
+│   ├── components/         # Reusable React components
+│   │   ├── ui/             # Core UI primitives (Button, Input, Toast)
+│   │   ├── CartDrawer.tsx  # Slide-over shopping bag
+│   │   ├── CheckoutModal.tsx # Student checkout & online payment
+│   │   ├── Navbar.tsx      # Responsive header with cart counter
+│   │   └── ProductCard.tsx # Resilient product card
+│   ├── context/            # React Context providers (CartContext)
+│   └── lib/                # Configuration and utilities
+└── next.config.ts          # Image optimization & remote domain rules
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+---
 
-## 🔑 Login Credentials (Mock)
-- **Email**: `admin@example.com`
-- **Password**: `password123`
+## 👨‍💻 Author
 
-## 📂 Key Directory Structure
-- `src/app` - App Router pages (`/`, `/items`, `/login`, `/admin`)
-- `src/components` - Reusable UI components (`ProductCard`, `Navbar`, etc.)
-- `src/components/ui` - Shadcn-like UI primitives (Button, Input, Toast)
-- `src/lib` - Utilities
+* **Sojibul Islam Rana** — [GitHub Profile](https://github.com/sojibulislamrana)
 
-## 📝 Usage
-1. **Browse**: Visit the home page to see trending items.
-2. **Shop**: Click "Shop" or "View Collections" to see all products.
-3. **Login**: Use the credentials above to access admin features.
-4. **Add Item**: Navigate to "Add Item" (after login) to list new products.
+---
+
+## 📄 License
+
+This project is licensed under the [ISC License](LICENSE).
