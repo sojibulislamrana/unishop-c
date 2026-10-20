@@ -1,4 +1,11 @@
 # UniShop — Student Lifestyle & E-Commerce
+---
+## 🔗 Quick Links
+
+* 🌐 **Live Website**: [https://unishop-client.vercel.app](https://unishop-client.vercel.app)
+* 📦 **Frontend Repository**: [https://github.com/sojibulislamrana/unishop-c](https://github.com/sojibulislamrana/unishop-c)
+* ⚙️ **Backend Repository**: [https://github.com/sojibulislamrana/unishop-server](https://github.com/sojibulislamrana/unishop-server)
+---
 
 <p align="center">
   <img src="public/cover.png" alt="UniShop Cover" width="100%" />
@@ -14,22 +21,15 @@ UniShop is a modern, minimalist e-commerce platform tailored specifically for un
 
 ---
 
-## 🔗 Quick Links
-
-* 🌐 **Live Website**: [https://unishop-client.vercel.app](https://unishop-client.vercel.app)
-* 📦 **Frontend Repository**: [https://github.com/sojibulislamrana/unishop-c](https://github.com/sojibulislamrana/unishop-c)
-* ⚙️ **Backend Repository**: [https://github.com/sojibulislamrana/unishop-server](https://github.com/sojibulislamrana/unishop-server)
-
----
 
 ## ✨ Features
 
-* **🎒 Curated Student Catalog**: Tailored categories including *Bags & Backpacks*, *Watches*, *Clothing & Apparel*, and *Study & Tech Gear*.
-* **🛒 Persistent Shopping Bag & Slide-over Drawer**: Full Cart Context with real-time badge count, item quantity adjustments, subtotal tracking, and `localStorage` persistence.
-* **💳 Campus Checkout & Online Card Payment**: Integrated student checkout capturing student dorm/hall room details, phone/WhatsApp, and secure 256-bit encrypted card payments.
-* **🎟️ Student Promo Engine**: Working promo code support (`CAMPUS10` for 10% off, `WELCOME20` for 20% off) applied directly at checkout.
-* **📊 Store & Order Dashboard**: Real-time sales metrics, revenue analytics, and an Order Management view to inspect dorm deliveries and update order status (`Pending` → `Delivered`).
-* **🛡️ Image Resilience**: Next.js optimized images with automated fallback handlers to guarantee zero broken images across the store.
+* **Curated Student Catalog**: Tailored categories including *Bags & Backpacks*, *Watches*, *Clothing & Apparel*, and *Study & Tech Gear*.
+* **Persistent Shopping Bag & Slide-over Drawer**: Full Cart Context with real-time badge count, item quantity adjustments, subtotal tracking, and `localStorage` persistence.
+* **Campus Checkout & Online Card Payment**: Integrated student checkout capturing student dorm/hall room details, phone/WhatsApp, and secure 256-bit encrypted card payments.
+* **Student Promo Engine**: Working promo code support (`CAMPUS10` for 10% off, `WELCOME20` for 20% off) applied directly at checkout.
+* **Store & Order Dashboard**: Real-time sales metrics, revenue analytics, and an Order Management view to inspect dorm deliveries and update order status (`Pending` → `Delivered`).
+* **Image Resilience**: Next.js optimized images with automated fallback handlers to guarantee zero broken images across the store.
 
 ---
 
@@ -42,56 +42,6 @@ UniShop is a modern, minimalist e-commerce platform tailored specifically for un
 * **Icons**: [Lucide React](https://lucide.dev/)
 * **Authentication**: [NextAuth.js](https://next-auth.js.org/)
 * **Deployment**: [Vercel](https://vercel.com/)
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* [Node.js](https://nodejs.org/) (v18.17.0 or higher)
-* [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)
-* Running instance of [UniShop Server](https://github.com/sojibulislamrana/unishop-server)
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/sojibulislamrana/unishop-c.git
-   cd unishop-c
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment Variables**:
-   Create a `.env.local` file in the root folder:
-   ```env
-   # API Endpoint (Points to local server or deployed Vercel backend)
-   NEXT_PUBLIC_API_URL=http://localhost:5001
-
-   # NextAuth
-   NEXTAUTH_URL=http://localhost:3000
-   NEXTAUTH_SECRET=unishop_super_secret_session_key_2026
-   ```
-
-4. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 🔑 Demo & Admin Credentials
-
-* **Admin Email**: `admin@example.com`
-* **Password**: `password123`
-* **Student Promo Codes**: `CAMPUS10` (10% OFF), `WELCOME20` (20% OFF)
-* **Test Card for Checkout**: Any standard card format (prefilled demo card `4242 4242 4242 4242`)
 
 ---
 
