@@ -1,11 +1,5 @@
 # UniShop — Student Lifestyle & E-Commerce
----
-## 🔗 Quick Links
 
-* 🌐 **Live Website**: [https://unishop-client.vercel.app](https://unishop-client.vercel.app)
-* 📦 **Frontend Repository**: [https://github.com/sojibulislamrana/unishop-c](https://github.com/sojibulislamrana/unishop-c)
-* ⚙️ **Backend Repository**: [https://github.com/sojibulislamrana/unishop-server](https://github.com/sojibulislamrana/unishop-server)
----
 
 <p align="center">
   <img src="public/cover.png" alt="UniShop Cover" width="100%" />
@@ -20,7 +14,12 @@
 UniShop is a modern, minimalist e-commerce platform tailored specifically for university students. Designed with a clean Scandinavian aesthetic, UniShop curates everyday essentials across bags, timepieces, streetwear apparel, and campus study gear with direct-to-dorm delivery and instant online checkout.
 
 ---
+## Quick Links
 
+* **Live Website**: [https://unishop-client.vercel.app](https://unishop-client.vercel.app)
+* **Frontend Repository**: [https://github.com/sojibulislamrana/unishop-c](https://github.com/sojibulislamrana/unishop-c)
+* **Backend Repository**: [https://github.com/sojibulislamrana/unishop-server](https://github.com/sojibulislamrana/unishop-server)
+---
 
 ## ✨ Features
 
